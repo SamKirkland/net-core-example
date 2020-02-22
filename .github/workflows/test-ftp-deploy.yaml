@@ -20,7 +20,7 @@ jobs:
       run: dotnet build dotnet-core-hello-world.csproj --configuration Release
         
     - name: List output files
-      run: find bin/ -type d -print
+      run: find bin/ -print
 
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action-Typescript@master
@@ -28,4 +28,4 @@ jobs:
         ftp-server: ftp://ftp.samkirkland.com/
         ftp-username: dotnet-core-action@samkirkland.com
         ftp-password: ${{ secrets.ftp_password }}
-        local-dir: bin\
+        local-dir: bin\Release\netcoreapp2.1\
