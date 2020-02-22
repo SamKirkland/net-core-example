@@ -17,7 +17,7 @@ jobs:
         dotnet-version: 2.1.804 # SDK Version to use see https://dotnet.microsoft.com/download/dotnet-core
     
     - name: Build with dotnet
-      run: dotnet build dotnet-core-hello-world --configuration Release
+      run: dotnet build dotnet-core-hello-world.csproj --configuration Release
 
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action-Typescript@master
