@@ -1,0 +1,27 @@
+on: push
+name: Test FTP Deploy
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Get latest code from github
+      uses: actions/checkout@master
+      with:
+        fetch-depth: 2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.1 # SDK Version to use
+    
+    - name: Build with dotnet
+      run: dotnet build dotnet-core-hello-world --configuration Release
+
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action-Typescript@master
+      with:
+        ftp-server: ftp://ftp.samkirkland.com/
+        ftp-username: dotnet-core-action@samkirkland.com
+        ftp-password: ${{ secrets.ftp_password }}
