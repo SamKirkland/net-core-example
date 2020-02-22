@@ -28,4 +28,4 @@ jobs:
         ftp-server: ftp://ftp.samkirkland.com/
         ftp-username: dotnet-core-action@samkirkland.com
         ftp-password: ${{ secrets.ftp_password }}
-        local-dir: bin\Release\netcoreapp2.1\
+        local-dir: bin/Release/netcoreapp2.1/
